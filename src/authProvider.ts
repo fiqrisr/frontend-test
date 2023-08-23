@@ -5,9 +5,9 @@ export const authProvider: AuthBindings = {
   login: async ({ username, password }) => {
     const user = await httpInstance.post("/auth/login", { username, password });
 
-    if (user) {
+    if (user && user.data.message === "LOGIN SUCCESS") {
       if (typeof window !== "undefined")
-        localStorage.setItem("auth", JSON.stringify(user));
+        localStorage.setItem("auth", JSON.stringify(user.data));
       return {
         success: true,
         redirectTo: "/",
