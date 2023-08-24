@@ -24,7 +24,7 @@ import { useLocalStorage } from "@mantine/hooks";
 import { NotificationsProvider } from "@mantine/notifications";
 import dataProvider from "@refinedev/simple-rest";
 import { appWithTranslation, useTranslation } from "next-i18next";
-import { authProvider } from "src/authProvider";
+import { authProvider } from "@/providers";
 import { AppIcon } from "@components/app-icon";
 
 const API_URL = "https://api.fake-rest.refine.dev";
@@ -97,28 +97,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
                 notificationProvider={notificationProvider}
                 authProvider={authProvider}
                 i18nProvider={i18nProvider}
-                resources={[
-                  {
-                    name: "blog_posts",
-                    list: "/blog-posts",
-                    create: "/blog-posts/create",
-                    edit: "/blog-posts/edit/:id",
-                    show: "/blog-posts/show/:id",
-                    meta: {
-                      canDelete: true,
-                    },
-                  },
-                  {
-                    name: "categories",
-                    list: "/categories",
-                    create: "/categories/create",
-                    edit: "/categories/edit/:id",
-                    show: "/categories/show/:id",
-                    meta: {
-                      canDelete: true,
-                    },
-                  },
-                ]}
+                resources={[]}
                 options={{
                   syncWithLocation: true,
                   warnWhenUnsavedChanges: true,

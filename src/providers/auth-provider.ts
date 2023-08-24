@@ -36,6 +36,7 @@ export const authProvider: AuthBindings = {
     let user;
 
     if (typeof window !== "undefined") user = localStorage.getItem("auth");
+    console.log(user);
 
     if (user) {
       return {
