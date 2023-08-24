@@ -120,7 +120,8 @@
       "id": "Id",
       "name": "Item Name",
       "stock": "Stock",
-      "price": "Price"
+      "price": "Price",
+      "selectSupplier": "Select Supplier"
     },
     "titles": {
       "create": "Create Item",
