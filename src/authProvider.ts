@@ -3,11 +3,11 @@ import { httpInstance } from "@/http";
 
 export const authProvider: AuthBindings = {
   login: async ({ username, password }) => {
-    const user = await httpInstance.post("/auth/login", { username, password });
+    const res = await httpInstance.post("/auth/login", { username, password });
 
-    if (user && user.data.message === "LOGIN SUCCESS") {
+    if (res && res.data?.message === "LOGIN SUCCESS") {
       if (typeof window !== "undefined")
-        localStorage.setItem("auth", JSON.stringify(user.data));
+        localStorage.setItem("auth", JSON.stringify(res.data));
       return {
         success: true,
         redirectTo: "/",
@@ -57,5 +57,28 @@ export const authProvider: AuthBindings = {
   onError: async (error) => {
     console.error(error);
     return { error };
+  },
+
+  register: async ({ username, profileName, password }) => {
+    const res = await httpInstance.post("/auth/register", {
+      username,
+      profileName,
+      password,
+    });
+
+    if (res && res.data?.message === "USERNAME IS REGISTERED") {
+      return {
+        success: true,
+        redirectTo: "/login",
+      };
+    }
+
+    return {
+      success: false,
+      error: {
+        name: "RegisterError",
+        message: "User already exist",
+      },
+    };
   },
 };

@@ -36,6 +36,8 @@
       "title": "Sign up for your account",
       "fields": {
         "email": "Email",
+        "username": "Username",
+        "profileName": "Profile Name",
         "password": "Password"
       },
       "errors": {
@@ -44,6 +46,9 @@
       "buttons": {
         "submit": "Register",
         "haveAccount": "Have an account?"
+      },
+      "placeholder": {
+        "profileName": "Your Name"
       }
     },
     "updatePassword": {

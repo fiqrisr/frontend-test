@@ -1,10 +1,10 @@
 import { ThemedTitleV2 } from "@refinedev/mantine";
 import {
-  LoginFormTypes,
+  RegisterFormTypes,
   useRouterType,
   useLink,
   useActiveAuthProvider,
-  useLogin,
+  useRegister,
   useTranslate,
   useRouterContext,
 } from "@refinedev/core";
@@ -31,7 +31,7 @@ import {
   pageTitleStyles,
 } from "../../styles/auth-layout.styles";
 
-export const LoginPage = () => {
+export const RegisterPage = () => {
   const theme = useMantineTheme();
   const { useForm, FormProvider } = FormContext;
   const translate = useTranslate();
@@ -44,13 +44,14 @@ export const LoginPage = () => {
   const form = useForm({
     initialValues: {
       username: "",
+      profileName: "",
       password: "",
     },
   });
   const { onSubmit, getInputProps } = form;
 
   const authProvider = useActiveAuthProvider();
-  const { mutate: login, isLoading } = useLogin<LoginFormTypes>({
+  const { mutate: login, isLoading } = useRegister<RegisterFormTypes>({
     v3LegacyAuthProviderCompatible: Boolean(authProvider?.isLegacy),
   });
 
@@ -69,7 +70,7 @@ export const LoginPage = () => {
           style={titleStyles}
           color={theme.colorScheme === "dark" ? "brand.5" : "brand.8"}
         >
-          {translate("pages.login.title", "Sign in to your account")}
+          {translate("pages.register.title", "Sign up for your account")}
         </Title>
         <Space h="sm" />
         <Space h="lg" />
@@ -86,6 +87,20 @@ export const LoginPage = () => {
               required
               {...getInputProps("username")}
             />
+            <TextInput
+              name="profileName"
+              mt="md"
+              label={translate(
+                "pages.register.fields.profileName",
+                "Profile Name"
+              )}
+              placeholder={translate(
+                "pages.register.placeholder.profileName",
+                "Your name"
+              )}
+              required
+              {...getInputProps("profileName")}
+            />
             <PasswordInput
               name="password"
               mt="md"
@@ -101,15 +116,15 @@ export const LoginPage = () => {
               type="submit"
               loading={isLoading}
             >
-              {translate("pages.login.signin", "Sign in")}
+              {translate("pages.register.buttons.submit", "Register")}
             </Button>
           </form>
         </FormProvider>
 
         <Text mt="md" size="xs" align="center">
-          {translate("pages.login.buttons.noAccount", "Don’t have an account?")}{" "}
-          <Anchor component={ActiveLink as any} to="/register" weight={700}>
-            {translate("pages.login.signup", "Sign up")}
+          {translate("pages.register.buttons.haveAccount", "Have an account?")}{" "}
+          <Anchor component={ActiveLink as any} to="/login" weight={700}>
+            {translate("pages.login.signin", "Sign in")}
           </Anchor>
         </Text>
       </Card>
@@ -117,4 +132,4 @@ export const LoginPage = () => {
   );
 };
 
-LoginPage.noLayout = true;
+RegisterPage.noLayout = true;
