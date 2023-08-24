@@ -103,6 +103,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): React.ReactNode {
                     show: "/barang/show/:id",
                     meta: {
                       canDelete: true,
+                      label: t("catalog.catalog"),
                     },
                   },
                 ]}

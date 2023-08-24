@@ -82,7 +82,7 @@ export const dataProvider = (): Omit<
   },
 
   create: async ({ resource, variables }) => {
-    const url = `/${resource}`;
+    const url = `/${resource}/create`;
 
     const { data } = await httpInstance.post(url, variables);
 
@@ -92,7 +92,7 @@ export const dataProvider = (): Omit<
   },
 
   update: async ({ resource, id, variables }) => {
-    const url = `/${resource}/${id}`;
+    const url = `/${resource}/update/${id}`;
 
     const { data } = await httpInstance.patch(url, variables);
 
@@ -102,17 +102,17 @@ export const dataProvider = (): Omit<
   },
 
   getOne: async ({ resource, id }) => {
-    const url = `/${resource}/${id}`;
+    const url = `/${resource}/find-by-id/${id}`;
 
     const { data } = await httpInstance.get(url);
 
     return {
-      data,
+      data: data?.data,
     };
   },
 
   deleteOne: async ({ resource, id, variables }) => {
-    const url = `/${resource}/${id}`;
+    const url = `/${resource}/delete/${id}`;
 
     const { data } = await httpInstance.delete(url, {
       data: variables,
