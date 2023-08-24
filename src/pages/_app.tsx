@@ -1,3 +1,5 @@
+import type { NextPage } from "next";
+import { AppProps } from "next/app";
 import { Refine } from "@refinedev/core";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 import {
@@ -10,10 +12,6 @@ import routerProvider, {
   DocumentTitleHandler,
   UnsavedChangesNotifier,
 } from "@refinedev/nextjs-router";
-import type { NextPage } from "next";
-import { AppProps } from "next/app";
-
-import { Header } from "@components/header";
 import {
   ColorScheme,
   ColorSchemeProvider,
@@ -23,8 +21,9 @@ import {
 import { useLocalStorage } from "@mantine/hooks";
 import { NotificationsProvider } from "@mantine/notifications";
 import { appWithTranslation, useTranslation } from "next-i18next";
+
+import { AppIcon, Header } from "@/components";
 import { authProvider, dataProvider } from "@/providers";
-import { AppIcon } from "@components/app-icon";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
@@ -104,6 +103,17 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): React.ReactNode {
                     meta: {
                       canDelete: true,
                       label: t("catalog.catalog"),
+                    },
+                  },
+                  {
+                    name: "supplier",
+                    list: "/supplier",
+                    create: "/supplier/create",
+                    edit: "/supplier/edit/:id",
+                    show: "/supplier/show/:id",
+                    meta: {
+                      canDelete: true,
+                      label: t("supplier.supplier"),
                     },
                   },
                 ]}

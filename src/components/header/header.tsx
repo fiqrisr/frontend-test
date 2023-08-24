@@ -92,7 +92,7 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
                     />
                   }
                 >
-                  {lang === "en" ? "English" : "German"}
+                  {lang === "en" ? "English" : "Indonesia"}
                 </Menu.Item>
               ))}
             </Menu.Dropdown>
