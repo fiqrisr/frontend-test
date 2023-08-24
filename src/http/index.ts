@@ -38,6 +38,4 @@ httpInstance.interceptors.response.use(
   }
 );
 
-console.log(BASE_API_URL);
-
 export { httpInstance };

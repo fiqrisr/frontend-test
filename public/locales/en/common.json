@@ -114,21 +114,34 @@
   "dashboard": {
     "title": "Dashboard"
   },
-  "blog_posts": {
-    "blog_posts": "Blog Posts",
+  "catalog": {
+    "catalog": "Catalog",
     "fields": {
       "id": "Id",
-      "title": "Title",
-      "content": "Content",
-      "status": "Status",
-      "createdAt": "Created At",
-      "category": "Category"
+      "name": "Item Name",
+      "stock": "Stock",
+      "price": "Price"
     },
     "titles": {
-      "create": "Create Blog Post",
-      "edit": "Edit Blog Post",
-      "list": "Blog Posts",
-      "show": "Show Blog Post"
+      "create": "Create Item",
+      "edit": "Edit Item",
+      "list": "Blog Item",
+      "show": "Show Item"
+    }
+  },
+  "supplier": {
+    "supplier": "Supplier",
+    "fields": {
+      "id": "Id",
+      "name": "Supplier Name",
+      "address": "Supplier Address",
+      "phone": "Supplier Phone"
+    },
+    "titles": {
+      "create": "Create Item",
+      "edit": "Edit Item",
+      "list": "Blog Item",
+      "show": "Show Item"
     }
   },
   "categories": {

@@ -94,7 +94,18 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): React.ReactNode {
                 notificationProvider={notificationProvider}
                 authProvider={authProvider}
                 i18nProvider={i18nProvider}
-                resources={[]}
+                resources={[
+                  {
+                    name: "barang",
+                    list: "/barang",
+                    create: "/barang/create",
+                    edit: "/barang/edit/:id",
+                    show: "/barang/show/:id",
+                    meta: {
+                      canDelete: true,
+                    },
+                  },
+                ]}
                 options={{
                   syncWithLocation: true,
                   warnWhenUnsavedChanges: true,
