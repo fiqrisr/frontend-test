@@ -33,7 +33,10 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-function MyApp({ Component, pageProps }: AppPropsWithLayout): React.ReactNode {
+function MyApp({
+  Component,
+  pageProps,
+}: AppPropsWithLayout): React.ReactElement {
   const renderComponent = () => {
     if (Component.noLayout) {
       return <Component {...pageProps} />;
