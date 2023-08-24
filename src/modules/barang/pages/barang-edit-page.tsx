@@ -1,11 +1,17 @@
 import { useMemo } from "react";
-import { Create, useForm, useSelect } from "@refinedev/mantine";
-import { NumberInput, Select, TextInput, Title } from "@mantine/core";
+import { Edit, useForm, useSelect } from "@refinedev/mantine";
+import {
+  NumberInput,
+  Select,
+  SelectItem,
+  TextInput,
+  Title,
+} from "@mantine/core";
 import { useTranslate } from "@refinedev/core";
 
 import { Supplier } from "@/types";
 
-export const BarangCreatePage: React.FC = () => {
+export const BarangEditPage: React.FC = () => {
   const translation = useTranslate();
 
   const { selectProps, queryResult } = useSelect<Supplier>({
@@ -18,7 +24,7 @@ export const BarangCreatePage: React.FC = () => {
     if (queryResult.data?.data) {
       return queryResult.data?.data.map((item) => ({
         label: item.namaSupplier ?? item.id.toString(),
-        value: item.id.toString(),
+        value: item.id,
       }));
     }
 
@@ -47,9 +53,9 @@ export const BarangCreatePage: React.FC = () => {
   });
 
   return (
-    <Create
+    <Edit
       saveButtonProps={saveButtonProps}
-      title={<Title order={3}>{translation("catalog.titles.create")}</Title>}
+      title={<Title order={3}>{translation("catalog.titles.edit")}</Title>}
     >
       <form>
         <TextInput
@@ -80,9 +86,9 @@ export const BarangCreatePage: React.FC = () => {
           placeholder={translation("catalog.fields.selectSupplier")}
           {...getInputProps("supplier.id")}
           {...selectProps}
-          data={supplierSelectData}
+          data={supplierSelectData as unknown as SelectItem[]}
         />
       </form>
-    </Create>
+    </Edit>
   );
 };

@@ -94,7 +94,7 @@ export const dataProvider = (): Omit<
   update: async ({ resource, id, variables }) => {
     const url = `/${resource}/update/${id}`;
 
-    const { data } = await httpInstance.patch(url, variables);
+    const { data } = await httpInstance.put(url, variables);
 
     return {
       data,
