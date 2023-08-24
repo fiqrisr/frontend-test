@@ -22,12 +22,9 @@ import {
 } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import { NotificationsProvider } from "@mantine/notifications";
-import dataProvider from "@refinedev/simple-rest";
 import { appWithTranslation, useTranslation } from "next-i18next";
-import { authProvider } from "@/providers";
+import { authProvider, dataProvider } from "@/providers";
 import { AppIcon } from "@components/app-icon";
-
-const API_URL = "https://api.fake-rest.refine.dev";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
@@ -37,7 +34,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
+function MyApp({ Component, pageProps }: AppPropsWithLayout): React.ReactNode {
   const renderComponent = () => {
     if (Component.noLayout) {
       return <Component {...pageProps} />;
@@ -93,7 +90,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
             <NotificationsProvider position="top-right">
               <Refine
                 routerProvider={routerProvider}
-                dataProvider={dataProvider(API_URL)}
+                dataProvider={dataProvider()}
                 notificationProvider={notificationProvider}
                 authProvider={authProvider}
                 i18nProvider={i18nProvider}
