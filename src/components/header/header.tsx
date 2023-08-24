@@ -20,15 +20,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
-interface IUser {
-  name: string;
-  avatar: string;
-}
+type IUser = {
+  profileName: string;
+};
 
 export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
   sticky,
 }) => {
   const { data: user } = useGetIdentity<IUser>();
+  console.log(user);
 
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const theme = useMantineTheme();
@@ -99,6 +99,7 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
           </Menu>
 
           <ActionIcon
+            mr="xl"
             variant="outline"
             color={dark ? "yellow" : "primary"}
             onClick={() => toggleColorScheme()}
@@ -107,10 +108,12 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
             {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
           </ActionIcon>
 
-          {(user?.name || user?.avatar) && (
+          {user?.profileName && (
             <Group spacing="xs">
-              {user?.name && <Title order={6}>{user?.name}</Title>}
-              <Avatar src={user?.avatar} alt={user?.name} radius="xl" />
+              {user?.profileName && (
+                <Title order={6}>{user?.profileName}</Title>
+              )}
+              <Avatar alt={user?.profileName} radius="xl" />
             </Group>
           )}
         </Group>

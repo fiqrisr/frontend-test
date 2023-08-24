@@ -1,0 +1,151 @@
+{
+  "pages": {
+    "login": {
+      "title": "Masuk ke akun Anda",
+      "signin": "Masuk",
+      "signup": "Registrasi",
+      "divider": "atau",
+      "fields": {
+        "email": "Email",
+        "username": "Username",
+        "password": "Password"
+      },
+      "errors": {
+        "validEmail": "Alamat email tidak valid"
+      },
+      "buttons": {
+        "submit": "Masuk",
+        "forgotPassword": "Lupa password?",
+        "noAccount": "Tidak memiliki akun?",
+        "rememberMe": "Ingat saya"
+      }
+    },
+    "forgotPassword": {
+      "title": "Lupa password?",
+      "fields": {
+        "email": "Email"
+      },
+      "errors": {
+        "validEmail": "Alamat email tidak valid"
+      },
+      "buttons": {
+        "submit": "Kirim instruksi reset"
+      }
+    },
+    "register": {
+      "title": "Daftarkan akun Anda",
+      "fields": {
+        "email": "Email",
+        "username": "Username",
+        "profileName": "Nama Profile",
+        "password": "Password"
+      },
+      "errors": {
+        "validEmail": "Alamat email tidak valid"
+      },
+      "buttons": {
+        "submit": "Daftar",
+        "haveAccount": "Sudah mempunyai akun?"
+      },
+      "placeholder": {
+        "profileName": "Nama Anda"
+      }
+    },
+    "updatePassword": {
+      "title": "Perbaharui password",
+      "fields": {
+        "password": "Password baru",
+        "confirmPassword": "Konfirmasi password baru"
+      },
+      "errors": {
+        "confirmPasswordNotMatch": "Passwords tidak cocok"
+      },
+      "buttons": {
+        "submit": "Ubah"
+      }
+    },
+    "error": {
+      "info": "You may have forgotten to add the {{action}} component to {{resource}} resource.",
+      "404": "Sorry, the page you visited does not exist.",
+      "resource404": "Are you sure you have created the {{resource}} resource.",
+      "backHome": "Back Home"
+    }
+  },
+  "actions": {
+    "list": "Daftar",
+    "create": "Tambah",
+    "edit": "Ubah",
+    "show": "Tampilkan"
+  },
+  "buttons": {
+    "create": "Tambah",
+    "save": "Simpan",
+    "logout": "Keluar",
+    "delete": "Hapus",
+    "edit": "Ubah",
+    "cancel": "Batal",
+    "confirm": "Apakah anda yakin?",
+    "filter": "Filter",
+    "clear": "Bersihkan",
+    "refresh": "Refresh",
+    "show": "Tampilkan",
+    "undo": "Undo",
+    "import": "Import",
+    "clone": "Clone",
+    "notAccessTitle": "Anda tidak memiliki akses"
+  },
+  "warnWhenUnsavedChanges": "Are you sure you want to leave? You have unsaved changes.",
+  "notifications": {
+    "success": "Successful",
+    "error": "Error (status code: {{statusCode}})",
+    "undoable": "You have {{seconds}} seconds to undo",
+    "createSuccess": "Successfully created {{resource}}",
+    "createError": "There was an error creating {{resource}} (status code: {{statusCode}})",
+    "deleteSuccess": "Successfully deleted {{resource}}",
+    "deleteError": "Error when deleting {{resource}} (status code: {{statusCode}})",
+    "editSuccess": "Successfully edited {{resource}}",
+    "editError": "Error when editing {{resource}} (status code: {{statusCode}})",
+    "importProgress": "Importing: {{processed}}/{{total}}"
+  },
+  "loading": "Loading",
+  "tags": {
+    "clone": "Clone"
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "catalog": {
+    "catalog": "Barang",
+    "fields": {
+      "id": "Id",
+      "name": "Nama Barang",
+      "stock": "Stok",
+      "price": "Harga",
+      "selectSupplier": "Pilih Supplier"
+    },
+    "titles": {
+      "create": "Tambah Item",
+      "edit": "Ubah Item",
+      "list": "Daftar Item",
+      "show": "Tampilkan Item"
+    }
+  },
+  "supplier": {
+    "supplier": "Supplier",
+    "fields": {
+      "id": "Id",
+      "name": "Nama Supplier",
+      "address": "Alamat Supplier",
+      "phone": "No. Telp Supplier"
+    },
+    "titles": {
+      "create": "Tambah Supplier",
+      "edit": "Ubah Supplier",
+      "list": "Daftar Supplier",
+      "show": "Tampilkan Supplier"
+    }
+  },
+  "table": {
+    "actions": "Aksi"
+  }
+}
