@@ -1,4 +1,6 @@
 import { AuthBindings } from "@refinedev/core";
+import nookies from "nookies";
+
 import { httpInstance } from "@/http";
 
 export const authProvider: AuthBindings = {
@@ -7,7 +9,13 @@ export const authProvider: AuthBindings = {
 
     if (res && res.data?.message === "LOGIN SUCCESS") {
       if (typeof window !== "undefined")
-        localStorage.setItem("auth", JSON.stringify(res.data));
+        localStorage.setItem("auth", JSON.stringify(res.data?.data));
+
+      nookies.set(null, "auth", JSON.stringify(res.data?.data), {
+        maxAge: 30 * 24 * 60 * 60,
+        path: "/",
+      });
+
       return {
         success: true,
         redirectTo: "/",
@@ -26,19 +34,18 @@ export const authProvider: AuthBindings = {
   logout: async () => {
     if (typeof window !== "undefined") localStorage.removeItem("auth");
 
+    nookies.destroy(null, "auth");
+
     return {
       success: true,
       redirectTo: "/login",
     };
   },
 
-  check: async (ctx: any) => {
-    let user;
+  check: async (ctx) => {
+    const cookies = nookies.get(ctx);
 
-    if (typeof window !== "undefined") user = localStorage.getItem("auth");
-    console.log(user);
-
-    if (user) {
+    if (cookies["auth"]) {
       return {
         authenticated: true,
       };
